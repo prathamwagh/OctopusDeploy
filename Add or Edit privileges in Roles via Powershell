@@ -1,0 +1,25 @@
+Add-Type -Path 'C:\Program Files\Octopus Deploy\Octopus\Octopus.Client.dll'
+$env:OctopusURL = "http://localhost" #Your Ocotpus URL
+$env:OctopusAPIKey = "SET YOUR API KEY HERE" #API key of Administrator does not work here
+
+$endpoint = new-object Octopus.Client.OctopusServerEndpoint $env:OctopusURL,$env:OctopusAPIKey 
+
+$repository = new-object Octopus.Client.OctopusRepository $endpoint
+
+$Role = Get-OctopusUserRole -UserRoleName "ENTER ROLE NAME HERE"
+
+$Role = $repository.UserRoles.Get($RoleId)
+
+$Role.GrantedPermissions.Add("DeploymentView")
+$Role.GrantedPermissions.Add("EnnvironmentView")
+$Role.GrantedPermissions.Add("LifecyckeView")
+$Role.GrantedPermissions.Add("ProcessView")
+$Role.GrantedPermissions.Add("ProjectView")
+$Role.GrantedPermissions.Add("ReleaseView")
+$Role.GrantedPermissions.Add("TaskView")
+$Role.GrantedPermissions.Add("TaskViewLog")
+$Role.GrantedPermissions.Add("TriggerView")
+
+$repository.UserRoles.Modify($Role)
+
+Write-Output $Role
