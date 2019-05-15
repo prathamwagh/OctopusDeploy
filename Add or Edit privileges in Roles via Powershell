@@ -14,7 +14,7 @@ $Role = $repository.UserRoles.Get($RoleId)
 
 $Role.GrantedPermissions.Add("DeploymentView")
 $Role.GrantedPermissions.Add("EnnvironmentView")
-$Role.GrantedPermissions.Add("LifecyckeView")
+$Role.GrantedPermissions.Add("LifecycleView")
 $Role.GrantedPermissions.Add("ProcessView")
 $Role.GrantedPermissions.Add("ProjectView")
 $Role.GrantedPermissions.Add("ReleaseView")
