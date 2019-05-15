@@ -10,7 +10,7 @@ $Role = Get-OctopusUserRole -UserRoleName "ENTER ROLE NAME HERE"
 
 $Role = $repository.UserRoles.Get($RoleId)
 
-#Sample roles below, you can add many more!!
+#Sample privileges below, you can add many more!!
 
 $Role.GrantedPermissions.Add("DeploymentView")
 $Role.GrantedPermissions.Add("EnnvironmentView")
